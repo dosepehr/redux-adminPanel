@@ -18,7 +18,7 @@ const Courses = () => {
                     >
                         <div className='products__list products-wrapper'>
                             {data?.map((course) => (
-                                <CourseBox {...course} key={course.id} />
+                                <CourseBox {...course} key={course._id} />
                             ))}
                         </div>
                     </div>

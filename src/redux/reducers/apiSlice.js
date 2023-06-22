@@ -12,7 +12,11 @@ export const apiSlice = createApi({
         getCourses: builder.query({
             query: () => 'courses',
         }),
+        getArticles: builder.query({
+            query: () => 'articles',
+        }),
     }),
 });
 
-export const { useGetUsersQuery,useGetCoursesQuery } = apiSlice;
+export const { useGetUsersQuery, useGetCoursesQuery, useGetArticlesQuery } =
+    apiSlice;
