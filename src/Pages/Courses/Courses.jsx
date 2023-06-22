@@ -1,4 +1,4 @@
-import { CourseBox,ContentTabs } from '../../components';
+import { CourseBox, ContentTabs, Spinner } from '../../components';
 import './Courses.css';
 import { useGetCoursesQuery } from '../../redux/reducers/apiSlice';
 
@@ -10,7 +10,7 @@ const Courses = () => {
                 <ContentTabs />
 
                 {isLoading ? (
-                    <p>درحال بارگذاری</p>
+                    <Spinner />
                 ) : (
                     <div
                         className='products products-container'
