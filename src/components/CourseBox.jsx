@@ -1,6 +1,11 @@
-import React from 'react';
-
-const CourseBox = () => {
+const CourseBox = ({
+    title,
+    desc,
+    price,
+    category,
+    registersCount,
+    discount,
+}) => {
     return (
         <div class='products__item'>
             <img
@@ -10,10 +15,8 @@ const CourseBox = () => {
             />
             <div class='products__details w-100'>
                 <div class='products__info'>
-                    <h3 class='products__name'>دوره متخصص ریداکس</h3>
-                    <p class='products__short-desc'>
-                        لورم ایپسوم متن ساختگی برای پروتوتایپ اپلیکیشن های ...
-                    </p>
+                    <h3 class='products__name'>{title}</h3>
+                    <p class='products__short-desc'>{desc}</p>
                 </div>
                 <div class='products__tags'>
                     <div class='products__boxes'>
@@ -22,7 +25,7 @@ const CourseBox = () => {
 
                             <span class='product__teg-text'>قیمت :</span>
                             <span class='product__teg-text products__price-value'>
-                                35000
+                                {price}
                             </span>
                         </div>
                         <div class='products__category-box'>
@@ -30,7 +33,7 @@ const CourseBox = () => {
 
                             <span class='product__teg-text'>دسته بندی:</span>
                             <span class='product__teg-text products__category'>
-                                فرانت اند
+                                {category}
                             </span>
                         </div>
                         <div class='products__shop-box'>
@@ -38,7 +41,7 @@ const CourseBox = () => {
 
                             <span class='product__teg-text'>تعداد فروش :</span>
                             <span class='product__teg-text products__sell'>
-                                10
+                                {registersCount}
                             </span>
                         </div>
                     </div>
@@ -49,7 +52,7 @@ const CourseBox = () => {
                 </div>
             </div>
 
-            <div class='product__discount-Box'>30%</div>
+            <div class='product__discount-Box'>{discount}%</div>
         </div>
     );
 };
