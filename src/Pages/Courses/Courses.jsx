@@ -1,38 +1,12 @@
 import CourseBox from '../../components/CourseBox';
-import { Link } from 'react-router-dom';
+import ContentTabs from '../../components/ContentTabs';
 import './Courses.css';
 
 export default function Courses() {
     return (
         <div class='col-8 content px-0'>
             <div class='content__wrapper d-flex flex-column align-content-between'>
-                <ul class='content__tabs'>
-                    <li class='content__tab'>
-                        <Link to='/users' class='content__tab-link'>
-                            <span class='fa fa-user'></span>
-                            کاربران
-                        </Link>
-                    </li>
-                    <li class='content__tab'>
-                        <Link to='/infos' class='content__tab-link'>
-                            <span class='fa fa-book'></span>
-                            اطلاعات
-                        </Link>
-                    </li>
-                    <li class='content__tab'>
-                        <Link to='/courses' class='content__tab-link'>
-                            <span class='fa fa-store'></span>
-                            دوره‌ها
-                        </Link>
-                    </li>
-
-                    <li class='content__tab'>
-                        <Link to='/articles' class='content__tab-link'>
-                            <span class='fa fa-newspaper'></span>
-                            وبلاگ
-                        </Link>
-                    </li>
-                </ul>
+                <ContentTabs />
 
                 <div class='products products-container'>
                     <div class='products__list products-wrapper'>
