@@ -3,6 +3,7 @@ import App from '../App';
 import Users from '../Pages/Users/Users';
 import Infos from '../Pages/Infos/Infos';
 import Courses from '../Pages/Courses/Courses';
+import Blogs from '../Pages/Blogs/Blogs';
 const router = createBrowserRouter([
     {
         path: '/',
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses />,
+            },
+            {
+                path: '/blogs',
+                element: <Blogs />,
             }
         ],
     },
