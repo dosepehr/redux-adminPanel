@@ -18,11 +18,22 @@ export const apiSlice = createApi({
         getCourses: builder.query({
             query: () => 'courses',
         }),
+        deleteCourse: builder.mutation({
+            query: (id) => ({
+                url: `courses/${id}`,
+                method: 'DELETE',
+            }),
+        }),
         getArticles: builder.query({
             query: () => 'articles',
         }),
     }),
 });
 
-export const { useGetUsersQuery, useGetCoursesQuery, useGetArticlesQuery ,useDeleteUserMutation} =
-    apiSlice;
+export const {
+    useGetUsersQuery,
+    useGetCoursesQuery,
+    useGetArticlesQuery,
+    useDeleteUserMutation,
+    useDeleteCourseMutation,
+} = apiSlice;

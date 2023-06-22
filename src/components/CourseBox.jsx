@@ -1,3 +1,5 @@
+import { useDeleteCourseMutation } from '../redux/reducers/apiSlice';
+import { toast } from 'react-toastify';
 const CourseBox = ({
     title,
     desc,
@@ -5,7 +7,17 @@ const CourseBox = ({
     category,
     registersCount,
     discount,
+    _id,
 }) => {
+    const [deleteCourse] = useDeleteCourseMutation();
+    const handleDeleteCourse = async (id) => {
+        try {
+            await deleteCourse(id).unwrap();
+            toast.success(`دوره با موفقیت حذف شد`);
+        } catch (err) {
+            toast.error('مشکلی وجود دارد');
+        }
+    };
     return (
         <div class='products__item'>
             <img
@@ -46,7 +58,12 @@ const CourseBox = ({
                         </div>
                     </div>
                     <div class='products__btns'>
-                        <button class='btn btn-danger btn-lg'>حذف</button>
+                        <button
+                            class='btn btn-danger btn-lg'
+                            onClick={() => handleDeleteCourse(_id)}
+                        >
+                            حذف
+                        </button>
                         <button class='btn btn-info btn-lg'>ویرایش</button>
                     </div>
                 </div>
