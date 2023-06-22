@@ -1,5 +1,4 @@
-import CourseBox from '../../components/CourseBox';
-import ContentTabs from '../../components/ContentTabs';
+import { CourseBox,ContentTabs } from '../../components';
 import './Courses.css';
 import { useGetCoursesQuery } from '../../redux/reducers/apiSlice';
 

@@ -1,7 +1,5 @@
 import React from 'react';
-import UserItem from '../../components/UserItem';
-import ContentTabs from '../../components/ContentTabs';
-import Spinner from '../../components/ContentTabs';
+import { UserItem, ContentTabs } from '../../components';
 import './Users.css';
 import { useGetUsersQuery } from '../../redux/reducers/apiSlice';
 
@@ -40,7 +38,7 @@ const Users = () => {
                     <div className='users__list-container'>
                         <div className='users__list users__list-wrapper'>
                             {isLoading ? (
-                                <Spinner />
+                                <p>درحال بارگذاری</p>
                             ) : (
                                 data?.map((user) => (
                                     <UserItem {...user} key={user._id} />

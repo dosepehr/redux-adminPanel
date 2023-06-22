@@ -1,7 +1,5 @@
 import React from 'react';
-import ContentTabs from '../../components/ContentTabs';
-import BlogBox from './../../components/BlogBox';
-
+import { ContentTabs, BlogBox } from '../../components';
 import './Blogs.css';
 
 export default function Blogs() {

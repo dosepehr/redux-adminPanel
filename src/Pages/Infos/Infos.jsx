@@ -1,5 +1,5 @@
 import React from 'react';
-import ContentTabs from '../../components/ContentTabs';
+import {ContentTabs} from '../../components';
 
 import './Infos.css';
 
