@@ -2,47 +2,55 @@ import React from 'react';
 import UserItem from '../../components/UserItem';
 import ContentTabs from '../../components/ContentTabs';
 import './Users.css';
+import { useGetUsersQuery } from '../../redux/reducers/apiSlice';
 
-export default function Users() {
+const Users = () => {
+    const { data, isLoading } = useGetUsersQuery();
     return (
-        <div class='col-8 content px-0'>
-            <div class='content__wrapper'>
+        <div className='col-8 content px-0'>
+            <div className='content__wrapper'>
                 <ContentTabs />
 
-                <div class='users'>
+                <div className='users'>
                     <form
                         action='#'
-                        class='form row justify-content-between gap-3 mx-0'
+                        className='form row justify-content-between gap-3 mx-0'
                     >
-                        <div class='form__box-input col-8 px-0'>
-                            <span class='fa fa-search form__icon form__icon-search'></span>
+                        <div className='form__box-input col-8 px-0'>
+                            <span className='fa fa-search form__icon form__icon-search'></span>
 
                             <input
                                 type='search'
                                 name=''
                                 id='search'
                                 placeholder='نام یا ایمیل کاربر را وارد کنید '
-                                class='form-control form__input'
+                                className='form-control form__input'
                                 required
                             />
                         </div>
                         <button
                             type='reset'
-                            class='btn-custome btn-custome--gray col-3'
+                            className='btn-custome btn-custome--gray col-3'
                         >
                             حذف کاربر
                         </button>
                     </form>
 
-                    <div class='users__list-container'>
-                        <div class='users__list users__list-wrapper'>
-                            <UserItem />
-                            <UserItem />
-                            <UserItem />
+                    <div className='users__list-container'>
+                        <div className='users__list users__list-wrapper'>
+                            {isLoading ? (
+                                <p>درحال بارگذاری</p>
+                            ) : (
+                                data?.map((user) => (
+                                    <UserItem {...user} key={user._id} />
+                                ))
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
+
+export default Users;
