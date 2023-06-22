@@ -1,9 +1,9 @@
 import { ContentTabs, BlogBox, Spinner } from '../../components';
 import './Blogs.css';
-import { useGetArticlesQuery } from '../../redux/reducers/apiSlice';
+import { useGetBlogsQuery } from '../../redux/reducers/apiSlice';
 
 export default function Blogs() {
-    const { data, isLoading } = useGetArticlesQuery();
+    const { data, isLoading } = useGetBlogsQuery();
     return (
         <div className='col-8 content px-0'>
             <div className='content__wrapper d-flex flex-column align-content-between'>
