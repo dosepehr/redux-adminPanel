@@ -27,6 +27,12 @@ export const apiSlice = createApi({
         getArticles: builder.query({
             query: () => 'articles',
         }),
+        deleteBlog: builder.mutation({
+            query: (id) => ({
+                url: `articles/${id}`,
+                method: 'DELETE',
+            }),
+        }),
     }),
 });
 
@@ -36,4 +42,5 @@ export const {
     useGetArticlesQuery,
     useDeleteUserMutation,
     useDeleteCourseMutation,
+    useDeleteBlogMutation,
 } = apiSlice;

@@ -1,4 +1,17 @@
-const BlogBox = ({ title, category, desc, views }) => {
+import { toast } from 'react-toastify';
+import { useDeleteBlogMutation } from '../redux/reducers/apiSlice';
+
+const BlogBox = ({ title, category, desc, views, _id }) => {
+    const [deleteBlog] = useDeleteBlogMutation();
+
+    const handleDeleteBlog = async (id) => {
+        try {
+            await deleteBlog(id).unwrap();
+            toast.success('مقاله با موفقیت حذف شد');
+        } catch (err) {
+            toast.error('مشکلی به وجود آمد');
+        }
+    };
     return (
         <div className='articles__item'>
             <img
@@ -33,7 +46,12 @@ const BlogBox = ({ title, category, desc, views }) => {
                         </div>
                     </div>
                     <div className='articles__btns'>
-                        <button className='op-btn btn btn-danger btn-lg'>
+                        <button
+                            className='op-btn btn btn-danger btn-lg'
+                            onClick={() => {
+                                handleDeleteBlog(_id);
+                            }}
+                        >
                             حذف
                         </button>
                         <button className='op-btn btn btn-info btn-lg'>
